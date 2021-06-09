@@ -31,7 +31,6 @@ def eigVs3D(N, kx, ky):
         j = np.concatenate((j, k), axis=0)
     
     res = np.delete(j, 0, 0)
-    print(res.shape)
     return res
 
 

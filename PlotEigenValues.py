@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import Constants as C
+import InnerProduct as IP
 
 resolution = C.resolution
 min = C.min
@@ -31,6 +32,21 @@ def plot2D(b, j):
 
     plt.plot(x, W[j])
     plt.legend(f"E")
+    return plt
+
+def plot3(): 
+    x = np.linspace(min, max, resolution)
+    y = np.linspace(min, max, resolution)
+    X, Y = np.meshgrid(x, y)
+    fig = plt.figure()
+    n=int(C.N/2)
+    ax = plt.axes(projection='3d')
+    Z = IP.conductivity2(x,y)
+
+    ax.plot_surface(X, Y, Z)
+    ax.set_xlabel('kx')
+    ax.set_ylabel('ky')
+    ax.set_zlabel('E')
     return plt
 
 
