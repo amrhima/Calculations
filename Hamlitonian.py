@@ -12,7 +12,7 @@ def m_lTerm(m, l, kx, ky, B, N):
         return B*C.invL*0.5*1.j
     return 0
 
-def hamiltonian(kx, ky, N, B):
+def H(kx, ky, N, B):
     a = np.zeros(N)
     for m in range(N):
         b = []
@@ -21,5 +21,3 @@ def hamiltonian(kx, ky, N, B):
         a = np.c_[a,b]
     res = np.matrix(a[:,1:])
     return res
-
-print(hamiltonian(1,3,2,7))
