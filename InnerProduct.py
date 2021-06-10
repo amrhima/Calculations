@@ -55,6 +55,6 @@ def conductivity2(n, m, i, j, b):
     
     return Ans
 
-kx = linspace(0, resolution-2, 99, dtype=int)
-ky = linspace(0, resolution-2, 99, dtype=int)
-print(conductivity2(1,1,kx,ky,0))
+# kx = linspace(0, resolution-2, 99, dtype=int)
+# ky = linspace(0, resolution-2, 99, dtype=int)
+# print(conductivity2(1,1,kx,ky,0))

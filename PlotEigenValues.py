@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from numpy.core.function_base import linspace
 import Constants as C
-import InnerProduct as IP
+import SaveEigens as Eig
+# import InnerProduct as IP
 
 resolution = C.resolution
 min = C.min
@@ -21,6 +22,26 @@ def plot(b):
     ax = plt.axes(projection='3d')
     W = np.load(f"Cache/{C.N}/B{b}/En_{n-1}.npy")
     Z = np.load(f"Cache/{C.N}/B{b}/En_{n}.npy")
+
+    ax.plot_surface(X, Y, W)
+    ax.plot_surface(X, Y, Z)
+    ax.set_xlabel('kx')
+    ax.set_ylabel('ky')
+    ax.set_zlabel('E')
+    return plt
+
+
+def plot2(b):
+    x = np.linspace(min, max, resolution)
+    y = np.linspace(min, max, resolution)
+    X, Y = np.meshgrid(x, y)
+    fig = plt.figure()
+    n=int(C.N/2)
+    ax = plt.axes(projection='3d')
+    F = Eig.getEigenVs()
+    print(n)
+    W = np.real(F[:,:,n])
+    Z = np.real(F[:,:,n-1])
 
     ax.plot_surface(X, Y, W)
     ax.plot_surface(X, Y, Z)
@@ -55,7 +76,7 @@ def plotIP():
     ax = plt.axes(projection='3d')
     kx = linspace(0, resolution-1, 100, dtype=int)
     ky = linspace(0, resolution-1, 100, dtype=int)
-    U = IP.conductivity2(0, 1, kx ,ky, 0)
+    # U = IP.conductivity2(0, 1, kx ,ky, 0)
     # print(ky)
     # ax.plot_surface(X, Y, U)
     # ax.set_xlabel('kx')
@@ -64,5 +85,5 @@ def plotIP():
     # return plt
 
 
-# plot(0).show()
-plotDelta()
+plot2(0).show()
+# plotDelta()
