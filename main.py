@@ -19,6 +19,7 @@ def conductivity2(b,omega):
 
 Omega = np.linspace(1, 50, 250)
 Sigma = conductivity(0, Omega)
+# print(Sigma)
 plt.plot(Omega, Sigma)
 plt.ylabel("Sigma")
 plt.xlabel("Omega")

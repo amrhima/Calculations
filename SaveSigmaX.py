@@ -34,5 +34,5 @@ def sigmaX(N):
 
 Sx = sigmaX(C.N)
 Sx2 = sigmaX2(C.N)
-# np.save(f"Cache/{C.N}/Sx.npy", Sx)
+np.save(f"Cache/{C.N}/Sx.npy", Sx2)
 print(Sx2)

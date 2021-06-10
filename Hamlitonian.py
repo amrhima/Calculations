@@ -22,4 +22,4 @@ def hamiltonian(kx, ky, N, B):
     res = np.matrix(a[:,1:])
     return res
 
-# print(hamiltonian(1,3,6,7))
+print(hamiltonian(1,3,2,7))

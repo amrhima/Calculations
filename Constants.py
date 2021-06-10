@@ -1,10 +1,11 @@
 import numpy as np
 
-resolution = 100
-min = -8
-max = 8
+resolution = 101
+min = -10
+max = 10
 x = np.linspace(min, max, resolution)
-dx = (x[1] - x[0])
+dx = (x[2] - x[1])
 beta = 0
-N = 20
-invL = 1
+N = 2
+invL = 0
+sigmaX = np.load(f"Cache/{N}/Sx.npy")
