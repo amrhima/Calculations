@@ -5,11 +5,9 @@ import Constants as C
 
 def conductivity2(omega):
     res = 0
-    # for n in range(C.N):
-    #     for m in range(C.N):
-    n=int(C.N/2)
-    m=int(C.N/2)-1
-    res += np.real(IP.conductivityIntegrated(n, m, omega))
+    for n in range(C.mu):
+        for m in range(C.mu, C.N):
+            res += np.real(IP.conductivityIntegrated(n, m, omega))
     return res
 
 def condOmega(omega):
@@ -25,7 +23,8 @@ def condOmega(omega):
 Omega = np.linspace(1, 20, 100)
 
 Sigma = condOmega(Omega)
-plt.plot(Omega, Sigma)
-plt.ylabel("Sigma")
-plt.xlabel("Omega")
-plt.show()
+np.save(f"sigma_{C.beta}_{C.N}.npy", Sigma)
+# plt.plot(Omega, Sigma)
+# plt.ylabel("Sigma")
+# plt.xlabel("Omega")
+# plt.savefig(f"{C.beta}-{C.N}.png")
