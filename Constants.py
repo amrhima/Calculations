@@ -7,10 +7,10 @@ max = 10
 momenta = np.linspace(min, max, resolution)
 momenta_labels = np.linspace(0, resolution-1, resolution, dtype=int)
 dx = (momenta[2] - momenta[1])
-beta = 0
-N = 2
-invL = 0
-delt = 1
+beta = 2.5
+N = 10
+invL = 1
+delt = 0.05
 mu = int(N/2)
 
 # Pauli Sigma_x

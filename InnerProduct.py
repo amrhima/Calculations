@@ -2,6 +2,7 @@ import numpy as np
 import time
 import Constants as C
 import EigenVs as Eig
+import math
 
 
 [E,V] = Eig.getEigenVs()
@@ -15,7 +16,7 @@ def conductivity(n, m, kx, ky, omega):
     a = np.absolute(np.conj(Kn).dot(M))**2
     dE = (np.real(Em-En))
     c = C.delta(dE-omega)
-    res = (2*a*c)/omega
+    res = (a*c)/omega
     return res
 
 # print(conductivity(5,4,30,30,0))
