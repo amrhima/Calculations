@@ -29,9 +29,10 @@ def plotR(beta):
     Omega = np.linspace(1, 20, 100)
     eps = 137/(4*math.pi)
     Sigma = np.abs(np.load(f"Data/sigma_{beta}_{C.N}.npy")*math.pi/2)
-    R = (Sigma**2)/(Sigma + 2*eps*math.cos(math.pi/3)**2)
+    R = (Sigma**2)/((Sigma + 2*eps*math.cos(math.pi/3))**2)
     plt.plot(Omega, R)
-    plt.ylabel("Sigma")
+    plt.ylabel("R")
+    plt.ylim(-0.1,1)
     plt.xlabel("Omega")
     plt.savefig(f"R_{beta}_{C.N}.png")
 
