@@ -1,16 +1,17 @@
 import numpy as np
+import math
 
-# Parameters for calculation
+# Parameters
 resolution = 101
-min = -10
-max = 10
-momenta = np.linspace(min, max, resolution)
+x_momenta = np.linspace(-math.pi, math.pi, resolution)
+y_momenta = np.linspace(-10, 10, resolution)
 momenta_labels = np.linspace(0, resolution-1, resolution, dtype=int)
-dx = (momenta[2] - momenta[1])
-beta = 2.5
-N = 10
+dkx = (x_momenta[2] - x_momenta[1])
+dky = (y_momenta[2] - y_momenta[1])
+beta = 0
+N = 42
 invL = 1
-delt = 0.05
+delt = 0.001
 mu = int(N/2)
 
 # Pauli Sigma_x
@@ -31,3 +32,8 @@ def sigmaX(N):
 # Delta function
 def delta(x):
     return delt/(x**2 + delt**2)
+
+
+# lambda > 1 mu
+# fix x => [-pi,pi]
+# N ~ [-10,9,....0,....9,10]
